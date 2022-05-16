@@ -1,19 +1,16 @@
 
-var ws;
-ws = new WebSocket('ws://localhost:8080/name');
-// ws.onmessage = function(data){
-//    showGreeting(data.data);
+let ws = new WebSocket('ws://localhost:8080/name');
 
 ws.onmessage = function(event) {
-    var log = document.getElementById("log");
-    var message = event.data;
-    log.innerHTML += message + "\n";
+    let textArea = document.getElementById("log");
+    let message = event.data;
+    textArea.innerHTML += message + "\n";
 }
 
 function send() {
-    var content = document.getElementById("username").value;
-    var json = JSON.stringify({
-        "name":content
+    let textFieldValue = document.getElementById("username").value;
+    let json = JSON.stringify({
+        "name":textFieldValue
     });
 
     ws.send(json);
