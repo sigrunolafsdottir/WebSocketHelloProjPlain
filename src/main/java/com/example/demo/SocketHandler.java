@@ -16,6 +16,7 @@ public class SocketHandler extends TextWebSocketHandler {
 
     //Thread safe list
     List <WebSocketSession>sessions = new CopyOnWriteArrayList<>();
+    NumberGenerator g = new NumberGenerator(sessions);
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
